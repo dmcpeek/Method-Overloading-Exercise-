@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -21,25 +22,18 @@ namespace MethodOverloading
 
         public static string Add(int a, int b, bool e)
         {
-            string numA = a.ToString();
-            string numB = b.ToString();
-
             if (e == false)
             {
                 return "1 dollar";
             }
             else
-            { 
-                if (a + b == 1) 
-                { 
-                    return "1 dollar";
-                }
-                else
-                {
-                    var sum = a + b;
-                    return (sum + " dollars");
-                }
+            {
+                int sum = a + b;
+                string sumText = "";
+                sumText = sum.ToString();
+                return ($"{ sumText} dollars");
             }
         }
     }
 }
+
